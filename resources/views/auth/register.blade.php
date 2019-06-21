@@ -40,6 +40,47 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="user_type" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
+                            <div class="col-md-6">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-control @error('user_type') is-invalid @enderror" name="user_type" value="{{ old('type') }}" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>&nbsp;
+                                    <label class="form-check-label" for="inlineRadio1">Client</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-control @error('user_type') is-invalid @enderror" name="user_type" value="{{ old('type') }}" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">&nbsp;
+                                    <label class="form-check-label" for="inlineRadio2">Resource</label>
+                                </div>
+
+
+                            </div>
+
+
+                    @if ($errors->has('user_type'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('user_type') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+
+                        <div class="form-group row">
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="country" class="form-control{{ $errors->has('country') ? ' select' : '' }}" name="country" value="{{ old('country') }}">
+                                    <option value="country">Select</option>
+                                    <option value="India" id="country">India</option>
+                                    <option value="Mauritius" id="country">Mauritius</option>
+                                </select>
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
